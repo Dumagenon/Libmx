@@ -3,7 +3,7 @@
 // Function works with NULL terminated array
 void mx_print_strarr(char **arr, const char *delim)
 {
-    if (arr != NULL || delim != NULL)
+    if (arr != NULL || delim != NULL || *arr != NULL)
     {
         for (int i = 0; arr[i] != NULL; i++)
         {

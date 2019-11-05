@@ -42,13 +42,6 @@ int mx_read_line(char **lineptr, int buf_size, char delim, const int fd)
     {
         return -1;
     }
-    if (delim_index == -1)
-    {
-        free(*lineptr);
-        mx_strdel(&tmp_str);
-        *lineptr = mx_strnew(0);
-        return 0;
-    }
     *lineptr = mx_strdup(tmp_str);
     mx_strdel(&tmp_str);
     return mx_strlen(*lineptr);

@@ -34,7 +34,7 @@ char *mx_strtrim(const char *str)
     break;
   }
 
-  if (countStart == countEnd)
+  if (countStart == end)
   {
     return mx_strnew(0);
   }

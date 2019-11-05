@@ -19,8 +19,12 @@ char *mx_file_to_str(const char *file)
 	close(srcFile);
 	// Выделяем новую память с нужным кол-вом байт
 	char *d = mx_strnew(count);
+	if (!d) return NULL;
+	
+	srcFile = open(file, O_RDONLY);
+	if (srcFile < 0) return NULL;
 
-	read(srcFile = open(file, O_RDONLY), d, count);
+	read(srcFile, d, count);
 	close(srcFile);
 	return d;
 }

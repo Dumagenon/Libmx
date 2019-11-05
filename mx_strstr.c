@@ -8,10 +8,13 @@ char *mx_strstr(const char *haystack, const char *needle)
         {
             int i;
             char *tmp = (char *)haystack;
-            for (i = 0; needle[i] && *haystack == needle[i]; i++)
+            haystack++;
+            for (i = 1; needle[i] && *haystack == needle[i]; i++)
                 haystack++;
             if (needle[i] == '\0')
                 return tmp;
+            else
+                haystack--;
         }
         haystack++;
     }
@@ -19,7 +22,7 @@ char *mx_strstr(const char *haystack, const char *needle)
 }
 
 // int main() {
-//     char str[] = "This program wrote on Linux Ubuntu";
+//     char str[] = "This pLLinurogram wrote on Linux";
 //     printf("%s", mx_strstr(str, "Linux"));
 //     return 0;
-// }
+//  }

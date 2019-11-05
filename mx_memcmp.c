@@ -2,17 +2,21 @@
 
 int mx_memcmp(const void *s1, const void *s2, size_t n)
 {
-    while (--n && (*((unsigned char *)s1) == *((unsigned char *)s2)))
+    const unsigned char *s1_c = s1, *s2_c = s2;
+
+    while (n--)
     {
-        s1 = (unsigned char *)s1 + 1;
-        s2 = (unsigned char *)s2 + 1;
+        if (*s1_c != *s2_c)
+            return *s1_c - *s2_c;
+        s1_c++;
+        s2_c++;
     }
-    return (*((unsigned char *)s1) - *((unsigned char *)s2));
+    return 0;
 }
 
 // int main() {
-//     unsigned char  src[15] = "y ";  // источник
-//     unsigned char dst[15] = "y";  // буфер назначения
+//     unsigned char  src[18] = "Hello my friend!";  // источник
+//     unsigned char dst[18] = "Hello my friend! ";  // буфер назначения
 //     printf("%d\n", mx_memcmp(dst, src,  20));
 //     printf("%d\n", memcmp(dst, src,  20));
 //     return 0;

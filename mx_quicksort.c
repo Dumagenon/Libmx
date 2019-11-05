@@ -8,7 +8,7 @@ int mx_quicksort(char **arr, int left, int right)
     if (left < right)
     {
         int low = left, high = right;
-        char *middle = arr[(low + high) / 2];
+        char *middle = arr[low + (high - low) / 2];
         while (low <= high)
         {
             while (mx_strlen(arr[low]) < mx_strlen(middle))
@@ -35,7 +35,7 @@ int mx_quicksort(char **arr, int left, int right)
 }
 
 // int main() {
-//   char *arr[] = {"1", "22","88888888", "666666", "333", "4444", "7777777", "999999999", "55555"};//{"666666", "333", "999999999", "1", "88888888", "4444", "55555", "7777777", "22"};
+//   char *arr[] = {"1", "22","333", "666666", "55555", "4444", "7777777", "999999999", "88888888"};//{"666666", "333", "999999999", "1", "88888888", "4444", "55555", "7777777", "22"};
 //   printf("%d\n", mx_quicksort(arr, 0, 8));
 //   for(int i = 0; i < 9;i++) {
 //     printf("%s\n", arr[i]);
